@@ -1,9 +1,15 @@
 制作nginx镜像
+
 建议先把需要安装的软件包下载到本地目录
+
 cd /usr/local/src
+
 wget http://nginx.org/download/nginx-1.20.1.tar.gz   #nginx
+
 wget http://ftp.pcre.org/pub/pcre/pcre-8.44.tar.gz   #nginx扩展
+
 wget https://www.openssl.org/source/openssl-1.1.1k.tar.gz  #nginx扩展
+
 wget http://www.zlib.net/zlib-1.2.11.tar.gz  #nginx扩展
 
 ##################################
