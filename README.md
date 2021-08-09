@@ -12,7 +12,6 @@ wget https://www.openssl.org/source/openssl-1.1.1k.tar.gz  #nginx扩展
 
 wget http://www.zlib.net/zlib-1.2.11.tar.gz  #nginx扩展
 
-##################################
 cd /usr/local/src  #进入目录
 
 vi   /usr/local/src/dockerfile
@@ -49,6 +48,7 @@ RUN ./configure --prefix=/usr/local/zlib && make && make install
 
 #安装Nginx
 WORKDIR /usr/local/src/nginx-1.21.1
+
 #创建nginx运行用户和组
 RUN groupadd www &&  useradd -g www www -s /bin/false
 RUN ./configure --prefix=/usr/local/nginx --without-http_memcached_module --user=www --group=www --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-openssl=/usr/local/src/openssl-1.1.1k --with-zlib=/usr/local/src/zlib-1.2.11 --with-pcre=/usr/local/src/pcre-8.44  && make && make install
@@ -67,8 +67,6 @@ EXPOSE 80/tcp   443/tcp
 
 #设置nginx以foreground前台方式运行
 CMD ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
-
-##################################
 
 #构建容器
 docker  build  -t  osyunwei/nginx:1 .
