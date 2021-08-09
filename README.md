@@ -1,4 +1,4 @@
-制作nginx镜像
+制作docker-nginx镜像
 
 建议先把需要安装的软件包下载到本地目录
 
@@ -67,6 +67,8 @@ EXPOSE 80/tcp   443/tcp
 
 #设置nginx以foreground前台方式运行
 CMD ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
+
 :wq!  #保存退出
+
 #构建容器
 docker  build  -t  osyunwei/nginx:1 .
